@@ -1,3 +1,5 @@
+Этот проект выполнен в ходе прохождения курса https://www.udemy.com/pro-react-redux/
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
