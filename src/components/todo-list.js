@@ -5,7 +5,6 @@ import './todo-list.css'
 const TodoList = ({ todos }) => {
 
     const elements = todos.map((item, i) => {
-
         const {id, ...itemProps} = item;
 
         return (
