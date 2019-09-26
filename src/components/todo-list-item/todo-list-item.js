@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import './todo-list-item.css'
-import { stat } from 'fs';
 
 export default class TodoListItem extends Component {
 
