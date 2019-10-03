@@ -33,7 +33,8 @@ export default class App extends Component {
             const idx = todoData.findIndex((el) => el.id === id);
             const newArray = [
                 ...todoData.slice(0, idx),
-                ...todoData.slice(idx + 1)];
+                ...todoData.slice(idx + 1),
+            ];
 
             return {
                 todoData: newArray
@@ -63,7 +64,11 @@ export default class App extends Component {
         const oldItem = arr[idx];
         const newItem = { ...oldItem, [propName]: !oldItem[propName] };
 
-        return [...arr.slice(0, idx), newItem, ...arr.slice(idx + 1)]
+        return [
+            ...arr.slice(0, idx), 
+            newItem, 
+            ...arr.slice(idx + 1)
+        ]
     }
 
     onToggleImportant = (id) => {
@@ -85,14 +90,15 @@ export default class App extends Component {
     render() {
 
         const { todoData } = this.state;
-        const doneCount = todoData
-            .filter((el) => el.done)
-            .length;
+        const doneCount = todoData.filter((el) => el.done).length;
         const todoCount = todoData.length - doneCount;
 
         return (
             <div className="todo-app">
-                <AppHeader toDo={todoCount} done={doneCount} />
+                <AppHeader 
+                    toDo={todoCount} 
+                    done={doneCount} 
+                />
                 <div className="top-panel d-flex">
                     <SearchPanel />
                     <ItemStatusFilter />
