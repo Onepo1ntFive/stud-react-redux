@@ -91,20 +91,6 @@ export default class App extends Component {
     };
 
     // search
-    onSearchChange = (search) => {
-        this.setState({ search })
-    }
-
-    searchItems(items, search) {
-        if (search.length === 0) {
-            return items
-        }
-
-        return items.filter((item) => {
-            return item.label.toLowerCase().indexOf(search.toLowerCase()) > -1
-        })
-
-    }
 
     //filter
 
@@ -113,7 +99,6 @@ export default class App extends Component {
         const { todoData, search } = this.state;
         const doneCount = todoData.filter((el) => el.done).length;
         const todoCount = todoData.length - doneCount;
-        const visibleTodos = this.searchItems(todoData, search);
 
         return (
             <div className="todo-app">
@@ -128,7 +113,7 @@ export default class App extends Component {
                     <ItemStatusFilter />
                 </div>
                 <TodoList
-                    todos={visibleTodos}
+                    todos={todoData}
                     onDeleted={this.deleteItem}
                     onToggleImportant={this.onToggleImportant}
                     onToggleDone={this.onToggleDone}
